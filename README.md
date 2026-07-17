@@ -76,7 +76,11 @@ The following methods are available for use with the `OLAMap` struct:
 - **`GetPlaceDetail(placeID string)`**: Fetches detailed information about a specific place using its unique identifier.
 - **`GetNearBySearch(nearBySearch NearBySearch)`**: Conducts a nearby search based on the provided parameters in NearBySearch.
 - **`GetTextSearch(textSearch TextSearch)`**: Executes a text-based search using the specified criteria in TextSearch.
-
+- **`GetSnapToRoad(points, enhancePath string)`**: Snaps the provided GPS points to the nearest roads, enhancing the path as specified.
+- **`GetNearestRoads(points string, radius string)`**: Retrieves the nearest roads to the specified GPS points within the given radius.
+- **`GetStaticMapImageCenter(mapImageCenter MapImageCenter)`**: Generates a static map image centered around the specified coordinates.
+- **`GetStaticMapImageBounded(mapImageBounded MapImageBounded)`**: Generates a static map image within specified bounding coordinates.
+- **`StaticMapImage(mapImage MapImage)`**: Fetches a static map image based on the provided map image parameters.
 ## Testing
 
 Test cases have been written for all files to ensure functionality and reliability. To run the tests, use the following command:
@@ -94,3 +98,7 @@ Contributions are welcome! Please follow these steps:
 3. Commit your changes (`git commit -m 'Add some feature'`).
 4. Push to the branch (`git push origin feature/new-feature`).
 5. Open a pull request.
+
+## License
+
+This project is licensed under the MIT License - see the [LICENSE]

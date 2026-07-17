@@ -416,3 +416,27 @@ type Source struct {
 	Type string `json:"type"`
 	URL  string `json:"url"`
 }
+
+type SnapToRoad struct {
+	Status        string         `json:"status"`
+	SnappedPoints []SnappedPoint `json:"snapped_points"`
+}
+
+type SnappedPoint struct {
+	Location      Location `json:"location"`
+	OriginalIndex int      `json:"original_index"`
+	SnappedType   string   `json:"snapped_type"`
+}
+
+type NearestRoad struct {
+	Status  string   `json:"status"`
+	Results []Result `json:"results"`
+}
+
+type Result struct {
+	Lat           float64 `json:"lat"`
+	Lng           float64 `json:"lng"`
+	Distance      float64 `json:"distance"`
+	OriginalIndex int     `json:"originalIndex"`
+	Status        string  `json:"status"`
+}
