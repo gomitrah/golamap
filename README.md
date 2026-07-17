@@ -8,6 +8,9 @@ This Go package provides a wrapper for the OLA Map API, allowing you to interact
 - [Installation](#installation)
 - [Usage](#usage)
 - [Available Methods](#available-methods)
+- [Testing](#testing)
+- [Contributing](#contributing)
+
 
 ## Features
 - Easy-to-use Golang wrapper for OLA Map.
@@ -67,3 +70,27 @@ The following methods are available for use with the `OLAMap` struct:
 - **`GeoCode(address, bounds, language string) (GeoData, error)`**: Converts an address into geographic coordinates.
 - **`ReverseGeocode(latlng string) (Address, error)`**: Converts geographic coordinates back into an address.
 - **`GetDistanceMatrix(origins, destinations string) (DistanceMatrix, error)`**: Calculates distances between multiple origins and destinations.
+- **`ArrayOfData(datasetName string)`**: Retrieves an array of data associated with the specified dataset name.
+- **`GetStyleDetails(styleName string)`**: Fetches details about a specific style using the provided style name.
+- **`GetMapStyle()`**: Retrieves the current map style being used.
+- **`GetPlaceDetail(placeID string)`**: Fetches detailed information about a specific place using its unique identifier.
+- **`GetNearBySearch(nearBySearch NearBySearch)`**: Conducts a nearby search based on the provided parameters in NearBySearch.
+- **`GetTextSearch(textSearch TextSearch)`**: Executes a text-based search using the specified criteria in TextSearch.
+
+## Testing
+
+Test cases have been written for all files to ensure functionality and reliability. To run the tests, use the following command:
+
+```bash
+go test ./...
+```
+
+## Contributing
+
+Contributions are welcome! Please follow these steps:
+
+1. Fork the repository.
+2. Create your feature branch (`git checkout -b feature/new-feature`).
+3. Commit your changes (`git commit -m 'Add some feature'`).
+4. Push to the branch (`git push origin feature/new-feature`).
+5. Open a pull request.
