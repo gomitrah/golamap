@@ -231,3 +231,188 @@ type ReverseGeometry struct {
 	Viewport     Viewport `json:"viewport"`
 	LocationType string   `json:"location_type"`
 }
+
+type ArrayOfData struct {
+	Attribution     string        `json:"attribution"`
+	Basename        string        `json:"basename"`
+	Bounds          []float64     `json:"bounds"`
+	Center          []float64     `json:"center"`
+	Compression     string        `json:"compression"`
+	DataVersion     string        `json:"data_version"`
+	Description     string        `json:"description"`
+	Format          string        `json:"format"`
+	ID              string        `json:"id"`
+	MaxZoom         int           `json:"maxzoom"`
+	MinZoom         int           `json:"minzoom"`
+	Name            string        `json:"name"`
+	Tiles           []string      `json:"tiles"`
+	Type            string        `json:"type"`
+	VectorLayers    []VectorLayer `json:"vector_layers"`
+	TileJSONVersion string        `json:"tilejson"`
+}
+
+type VectorLayer struct {
+	ID      string    `json:"id"`
+	MaxZoom int       `json:"maxzoom"`
+	MinZoom int       `json:"minzoom"`
+	Fields  FieldInfo `json:"fields"`
+}
+
+type FieldInfo struct {
+	Name      string `json:"name"`
+	Status    string `json:"status"`
+	Ref       string `json:"ref"`
+	Class     string `json:"class"`
+	SubClass  string `json:"subclass"`
+	Elevation string `json:"ele"`
+}
+
+type VectorMapStyle struct {
+	Version int    `json:"version"`
+	Name    string `json:"name"`
+	ID      string `json:"id"`
+	URL     string `json:"url"`
+}
+
+type VectorStyleDetails struct {
+	ID      string            `json:"id"`
+	Version int               `json:"version"`
+	Name    string            `json:"name"`
+	Sources map[string]Source `json:"sources"`
+	Glyphs  string            `json:"glyphs"`
+	Layers  []Layer           `json:"layers"`
+}
+
+type PlaceDetail struct {
+	HtmlAttributions  []interface{}     `json:"html_attributions"`
+	Resultplacedetail Resultplacedetail `json:"result"`
+	InfoMessages      []string          `json:"info_messages"`
+	ErrorMessage      string            `json:"error_message"`
+	Status            string            `json:"status"`
+}
+
+type Resultplacedetail struct {
+	AddressComponents        []AddressComponent  `json:"address_components"`
+	FormattedAddress         string              `json:"formatted_address"`
+	Geometryplacedetail      Geometryplacedetail `json:"geometry"`
+	PlaceID                  string              `json:"place_id"`
+	Reference                string              `json:"reference"`
+	BusinessStatus           string              `json:"business_status"`
+	FormattedPhoneNumber     string              `json:"formatted_phone_number"`
+	Icon                     string              `json:"icon"`
+	IconBackgroundColor      string              `json:"icon_background_color"`
+	IconMaskBaseURI          string              `json:"icon_mask_base_uri"`
+	InternationalPhoneNumber string              `json:"international_phone_number"`
+	Name                     string              `json:"name"`
+	OpeningHours             OpeningHours        `json:"opening_hours"`
+	PlusCode                 PlusCode            `json:"plus_code"`
+	Rating                   float64             `json:"rating"`
+	Reviews                  []Review            `json:"reviews"`
+	Types                    []string            `json:"types"`
+	Layer                    []string            `json:"layer"`
+	URL                      string              `json:"url"`
+	UserRatingsTotal         int                 `json:"user_ratings_total"`
+	UTCOffset                int                 `json:"utc_offset"`
+	Vicinity                 string              `json:"vicinity"`
+	Website                  string              `json:"website"`
+	PriceLevel               string              `json:"price_level"`
+	Photos                   []interface{}       `json:"photos"`
+	AdrAddress               string              `json:"adr_address"`
+}
+
+type OpeningHours struct {
+	OpenNow     bool            `json:"open_now"`
+	Periods     []OpeningPeriod `json:"periods"`
+	WeekdayText []string        `json:"weekday_text"`
+}
+
+type OpeningPeriod struct {
+	Close OpeningTime `json:"close"`
+	Open  OpeningTime `json:"open"`
+}
+
+type OpeningTime struct {
+	Day  int    `json:"day"`
+	Time string `json:"time"`
+}
+
+type Review struct {
+	AuthorName              string  `json:"author_name"`
+	AuthorURL               string  `json:"author_url"`
+	Language                string  `json:"language"`
+	ProfilePhotoURL         string  `json:"profile_photo_url"`
+	Rating                  float64 `json:"rating"`
+	RelativeTimeDescription string  `json:"relative_time_description"`
+	Text                    string  `json:"text"`
+	Time                    int64   `json:"time"`
+}
+
+type Geometryplacedetail struct {
+	Location Location `json:"location"`
+	Viewport Viewport `json:"viewport"`
+}
+
+type PredictionNearbySearch struct {
+	Description          string               `json:"description"`
+	MatchedSubstrings    []MatchedSubstring   `json:"matched_substrings"`
+	PlaceID              string               `json:"place_id"`
+	Reference            string               `json:"reference"`
+	StructuredFormatting StructuredFormatting `json:"structured_formatting"`
+	Terms                []Term               `json:"terms"`
+	Types                []string             `json:"types"`
+	Layer                []string             `json:"layer"`
+	DistanceMeters       int                  `json:"distance_meters"`
+}
+
+type StructuredFormatting struct {
+	MainText                       string             `json:"main_text"`
+	MainTextMatchedSubstrings      []MatchedSubstring `json:"main_text_matched_substrings"`
+	SecondaryText                  string             `json:"secondary_text"`
+	SecondaryTextMatchedSubstrings []MatchedSubstring `json:"secondary_text_matched_substrings"`
+}
+
+type NearBySearchResponse struct {
+	Predictions  []PredictionNearbySearch `json:"predictions"`
+	InfoMessages []string                 `json:"info_messages"`
+	ErrorMessage string                   `json:"error_message"`
+	Status       string                   `json:"status"`
+}
+
+type TextBySearch struct {
+	Predictions  []PredictionTextBySearch `json:"predictions"`
+	InfoMessages []string                 `json:"info_messages"`
+	ErrorMessage string                   `json:"error_message"`
+	Status       string                   `json:"status"`
+}
+
+type PredictionTextBySearch struct {
+	FormattedAddress string   `json:"formatted_address"`
+	Geometry         Geometry `json:"geometry"`
+	PlaceID          string   `json:"place_id"`
+	Name             string   `json:"name"`
+	Types            []string `json:"types"`
+}
+
+type Layer struct {
+	ID          string      `json:"id"`
+	Type        string      `json:"type"`
+	Source      string      `json:"source"`
+	SourceLayer string      `json:"source-layer"`
+	Filter      interface{} `json:"filter"` // Using interface{} to handle nested structures
+	Layout      Layout      `json:"layout"`
+	Paint       Paint       `json:"paint"`
+}
+
+type Layout struct {
+	Visibility string `json:"visibility"`
+}
+
+type Paint struct {
+	FillAntialias bool   `json:"fill-antialias"`
+	FillColor     string `json:"fill-color"`
+}
+
+type Source struct {
+	Type string `json:"type"`
+	URL  string `json:"url"`
+}

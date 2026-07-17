@@ -42,3 +42,12 @@ func (o *OlaRequest) SendOlaMapRequest(method, url, requestID, oauthToken string
 
 	return nil
 }
+
+// ParseJSONBody parses the JSON request body into the provided struct.
+func ParseJSONBody(r *http.Request, v interface{}) error {
+	body, err := io.ReadAll(r.Body)
+	if err != nil {
+		return err
+	}
+	return json.Unmarshal(body, v)
+}

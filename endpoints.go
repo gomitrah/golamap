@@ -7,4 +7,10 @@ var (
 	GeoCodeURL           = "https://api.olamaps.io/places/v1/geocode?address=%s&bounds=%s&language=%s"
 	ReverseGeocodeURL    = "https://api.olamaps.io/places/v1/reverse-geocode?latlng=%s"
 	DistanceMatrixURL    = "https://api.olamaps.io/routing/v1/distanceMatrix?origins=%s&destinations=%s"
+	ArrayOfDataURL       = "https://api.olamaps.io/tiles/vector/v1/data/%s.json"
+	StyleDetailsURL      = "https://api.olamaps.io/tiles/vector/v1/styles/%s/style.json"
+	MapStyleURL          = "https://api.olamaps.io/tiles/vector/v1/styles.json"
+	PlaceDetailURL       = "https://api.olamaps.io/places/v1/details?place_id=%v"
+	NearBySearchURL      = "https://api.olamaps.io/places/v1/nearbysearch?layers=%s&location=%s&types=%s&radius=%s&strictbounds=%s&withCentroid=%s&limit=%s"
+	TextSearchURL        = "https://api.olamaps.io/places/v1/textsearch?input=%s&location=%s&radius=%s&types=%s&size=%s"
 )
